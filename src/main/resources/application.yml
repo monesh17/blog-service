@@ -1,0 +1,26 @@
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+
+  liquibase:
+    change-log: classpath:db/changelog-master.xml
+    default-schema:
+    drop-first: false
+    contexts: crdb
+    enabled: true
+
+  datasource:
+    url: jdbc:postgresql://ec2-3-230-38-145.compute-1.amazonaws.com:5432/da016ojm04gqib
+    driver-class-name: org.postgresql.Driver
+    username: qhvpbsgawrjtri
+    password: 073e8d82527054956d1290a82ea70ed3897375cf8d71c3f06348a6f756d6a25c
+    hikari:
+      connection-test-query: SELECT 1
+
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
