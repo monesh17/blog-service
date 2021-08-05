@@ -17,6 +17,7 @@ spring:
     password: 073e8d82527054956d1290a82ea70ed3897375cf8d71c3f06348a6f756d6a25c
     hikari:
       connection-test-query: SELECT 1
+      maximumPoolSize: 5
 
   jpa:
     open-in-view: false
