@@ -2,6 +2,7 @@ package com.personal.blogService.controller;
 
 
 import com.personal.blogService.controller.request.BlogPostRequest;
+import com.personal.blogService.entity.Blog;
 import com.personal.blogService.service.BlogService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,10 +20,10 @@ public class BlogController {
 
     @PostMapping(produces = "application/json; " + "charset=UTF-8")
     ResponseEntity<String> createBlog(
-            @RequestBody BlogPostRequest blogContent,
+            @RequestBody Blog blogContent,
             @RequestHeader String username) {
-        log.info(blogContent.getBlog().toString());
-        blogService.saveBlog(blogContent.getBlog());
+        log.info(String.valueOf(blogContent));
+        blogService.saveBlog(blogContent);
         return ResponseEntity.ok("Blog Content Persisted");
     }
 }
