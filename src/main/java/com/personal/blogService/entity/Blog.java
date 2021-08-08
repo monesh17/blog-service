@@ -24,8 +24,11 @@ public class Blog {
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 
-    @Column(name = "user_id", updatable = false, nullable = false)
-    private int userId;
+    @Column(name = "name", updatable = false, nullable = false)
+    private String name;
+
+    @Column(name = "user_name", updatable = false, nullable = false)
+    private String userName;
 
 
     @Column(name = "created_at", updatable = false, nullable = false)
