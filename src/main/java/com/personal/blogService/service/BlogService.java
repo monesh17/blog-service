@@ -36,6 +36,7 @@ public class BlogService {
 
   public Blog updateBlogById(BlogPutRequest updateBlog) {
     Blog blog = blogRepository.findById(updateBlog.getId());
+    blog.setTags(updateBlog.getTags());
     blog.setContent(updateBlog.getContent());
     blog.setUpdatedAt(LocalDateTime.now());
     return blogRepository.save(blog);

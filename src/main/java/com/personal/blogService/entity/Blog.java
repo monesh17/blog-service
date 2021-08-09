@@ -11,39 +11,40 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @TypeDefs({
-        @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class),
+  @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class),
 })
 @Entity
 @Data
 public class Blog {
 
-    @Id
-    @Column(name = "id", updatable = false, nullable = false)
-    private UUID id;
+  @Id
+  @Column(name = "id", updatable = false, nullable = false)
+  private UUID id;
 
-    @Column(name = "name", updatable = false, nullable = false)
-    private String name;
+  @Column(name = "name", updatable = false, nullable = false)
+  private String name;
 
-    @Column(name = "user_name", updatable = false, nullable = false)
-    private String userName;
+  @Type(type = "jsonb")
+  @Column(name = "tags", columnDefinition = "jsonb")
+  private List<String> tags;
 
+  @Column(name = "user_name", updatable = false, nullable = false)
+  private String userName;
 
-    @Column(name = "created_at", updatable = false, nullable = false)
-    private LocalDateTime createdAt;
+  @Column(name = "created_at", updatable = false, nullable = false)
+  private LocalDateTime createdAt;
 
-    @Column(name = "updated_At")
-    private LocalDateTime updatedAt;
+  @Column(name = "updated_At")
+  private LocalDateTime updatedAt;
 
-    @Column(name = "deleted_at")
-    private LocalDateTime deletedAt;
+  @Column(name = "deleted_at")
+  private LocalDateTime deletedAt;
 
-    @Type(type = "jsonb")
-    @Column(name = "content",nullable = false,columnDefinition = "jsonb")
-    private ObjectNode content;
-
-
-
+  @Type(type = "jsonb")
+  @Column(name = "content", nullable = false, columnDefinition = "jsonb")
+  private ObjectNode content;
 }
