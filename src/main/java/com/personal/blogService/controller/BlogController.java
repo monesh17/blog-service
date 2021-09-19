@@ -30,7 +30,7 @@ public class BlogController {
   }
 
   @GetMapping(produces = "application/json; " + "charset=UTF-8")
-  ResponseEntity<BlogListResponse> getBlogs(@RequestHeader String userName) {
+  ResponseEntity<BlogListResponse> getBlogsForUser(@RequestHeader String userName) {
     List<Blog> blogs = blogService.getBlogsForUser(userName);
     BlogListResponse response = new BlogListResponse();
     response.setBlogResponses(blogs);
@@ -42,6 +42,15 @@ public class BlogController {
   public ResponseEntity<Blog> getBlogById(@PathVariable("id") UUID blogId) {
     Blog blog = blogService.getBlogById(blogId);
     return ResponseEntity.ok(blog);
+  }
+
+  @GetMapping("/general")
+  public ResponseEntity<BlogListResponse> getBlogForGeneral() {
+    List<Blog> blogs = blogService.getBlogs();
+    BlogListResponse response = new BlogListResponse();
+    response.setBlogResponses(blogs);
+    response.setCount(blogs.size());
+    return ResponseEntity.ok(response);
   }
 
   @PutMapping(produces = "application/json; " + "charset=UTF-8")

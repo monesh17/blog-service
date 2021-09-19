@@ -29,6 +29,11 @@ public class BlogService {
     return blogs;
   }
 
+  public List<Blog> getBlogs() {
+    List<Blog> blogs = blogRepository.findByIsSecuredFalse();
+    return blogs;
+  }
+
   public Blog getBlogById(UUID id) {
     Blog blog = blogRepository.findById(id);
     return blog;
