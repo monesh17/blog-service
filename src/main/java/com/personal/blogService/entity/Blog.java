@@ -47,4 +47,7 @@ public class Blog {
   @Type(type = "jsonb")
   @Column(name = "content", nullable = false, columnDefinition = "jsonb")
   private ObjectNode content;
+
+  @Column(name = "is_secured")
+  private boolean isSecured;
 }

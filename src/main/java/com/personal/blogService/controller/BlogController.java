@@ -55,4 +55,13 @@ public class BlogController {
     boolean deleted = blogService.deleteBlogById(blogId);
     return ResponseEntity.ok(deleted);
   }
+
+  @GetMapping("/secured")
+  ResponseEntity<BlogListResponse> getSecuredBlogs(@RequestHeader String userName) {
+    List<Blog> blogs = blogService.getSecuredBlogsForUser(userName);
+    BlogListResponse response = new BlogListResponse();
+    response.setBlogResponses(blogs);
+    response.setCount(blogs.size());
+    return ResponseEntity.ok(response);
+  }
 }

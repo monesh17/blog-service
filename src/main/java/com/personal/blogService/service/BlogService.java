@@ -47,4 +47,10 @@ public class BlogService {
     blogRepository.delete(blog);
     return true;
   }
+
+  public List<Blog> getSecuredBlogsForUser(String userName) {
+    // TODO: for now not considering the username
+    List<Blog> blogs = blogRepository.findByIsSecured(true);
+    return blogs;
+  }
 }

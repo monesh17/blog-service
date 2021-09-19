@@ -13,4 +13,6 @@ public interface BlogRepository extends JpaRepository<Blog, Long> {
   List<Blog> findByUserName(String userName);
 
   Blog findById(UUID id);
+
+  List<Blog> findByIsSecured(boolean isSecured);
 }
