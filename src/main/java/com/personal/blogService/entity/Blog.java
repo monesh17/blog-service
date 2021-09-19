@@ -49,5 +49,5 @@ public class Blog {
   private ObjectNode content;
 
   @Column(name = "is_secured")
-  private boolean isSecured;
+  private Boolean isSecured;
 }

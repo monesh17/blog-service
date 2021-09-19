@@ -14,7 +14,7 @@
 
     <changeSet id="2" author="root" context="crdb">
         <addColumn tableName="blog">
-            <column name="is_secured" type="boolean"/>
+            <column name="is_secured" type="boolean" defaultValue="false"/>
         </addColumn>
     </changeSet>
 
