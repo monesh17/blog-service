@@ -43,6 +43,7 @@ public class BlogService {
     Blog blog = blogRepository.findById(updateBlog.getId());
     blog.setTags(updateBlog.getTags());
     blog.setContent(updateBlog.getContent());
+    blog.setIsSecured(updateBlog.getIsSecured());
     blog.setUpdatedAt(LocalDateTime.now());
     return blogRepository.save(blog);
   }

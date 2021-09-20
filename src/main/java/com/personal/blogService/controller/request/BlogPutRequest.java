@@ -16,4 +16,5 @@ public class BlogPutRequest implements Serializable {
   private UUID id;
   private List<String> tags;
   private ObjectNode content;
+  private Boolean isSecured;
 }
